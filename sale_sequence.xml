@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- Sequences for Sale -->
+        <record id="seq_type_sale_order" model="ir.sequence.type">
+            <field name="name">Sale sequence</field>
+            <field name="code">sale.order.sequence</field>
+        </record>
+
+        <record id="seq_sale_order_std" model="ir.sequence">
+            <field name="name">Sale sequence std</field>
+            <field name="code">sale.order.sequence</field>
+            <field name="prefix">SO</field>
+            <field name="padding">5</field>
+        </record>
+
+        <record id="seq_sale_order_it" model="ir.sequence">
+            <field name="name">Sale sequence IT</field>
+            <field name="code">sale.order.sequence</field>
+            <field name="prefix">IT</field>
+            <field name="padding">5</field>
+        </record>
+
+        <record id="seq_sale_order_fr" model="ir.sequence">
+            <field name="name">Sale sequence FR</field>
+            <field name="code">sale.order.sequence</field>
+            <field name="prefix">FR</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</openerp>
