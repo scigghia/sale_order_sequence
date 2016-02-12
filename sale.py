@@ -33,15 +33,12 @@ class Sale(orm.Model):
                 cr, uid, vals.get('sequence_id')) or '/'
         return super(Sale, self).create(cr, uid, vals, context=context)
 
-    def copy(self, cr, uid, id, default=None, context=None):
-        res = super(Sale, self).copy(cr, uid, id, default, context=context)
-        new_seq = self.pool['ir.sequence'].next_by_id(
-            cr, uid, self.read(cr, uid, id, ['sequence_id'])['sequence_id'][0])
-        print default
-        default.update({'name': new_seq})
-        print default
-        self.write(cr, uid, id, {'name': new_seq}, context=context)
-        return res
+    def copy_data(self, cr, uid, id, default=None, context=None):
+        if default:
+            new_seq = self.pool['ir.sequence'].next_by_id(
+                cr, uid, self.read(cr, uid, id, ['sequence_id'])['sequence_id'][0])
+            default.update({'name': new_seq })
+        return super(Sale, self).copy_data(cr, uid, id, default, context)
 
     _columns = {
         'sequence_id': fields.many2one(
